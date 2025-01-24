@@ -1,0 +1,7 @@
+FROM eclipse-temurin:17.0.13_11-jdk
+ARG JAR_FILE=target/SGCampoV1-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} appCampo.jar
+EXPOSE 8080
+ENV DB_URL=jdbc:mysql://sistema_campo:3306/BD_SgCampo2?useUnicode=true&characterEncoding=utf8&createDatabaseIfNotExist=true
+ENV DB_USER=root
+ENTRYPOINT ["java", "-jar", "appCampo.jar"]
